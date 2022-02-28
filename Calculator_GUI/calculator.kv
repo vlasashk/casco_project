@@ -1,0 +1,864 @@
+
+WindowManager:
+	FirstWindow:
+	SecondWindow:
+	ThirdWindow:
+	FourthWindow:
+	FifthWindow:
+	SixthWindow:
+	SeventhWindow:
+
+		
+
+<FirstWindow>:
+	name: "first"
+
+	
+	FloatLayout:
+		size: root.width, root.height
+		
+
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_1.png"
+
+		Label:
+			text: "Choose your gender"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 50
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+
+
+		Button:
+			font_size: 32
+			size_hint: 0.22, 0.27
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.18, "y":0.36}
+			on_release: 
+				app.pol = root.set_male()
+				app.root.current = "second"
+				root.manager.transition.direction = "left"
+			Image:
+				source:  "Images/man.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+		Button:
+			font_size: 32
+			size_hint: 0.22, 0.27
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.62, "y":0.36}
+			on_release: 
+				app.pol = root.set_female()
+				app.root.current = "second"
+				root.manager.transition.direction = "left"
+			Image:
+				source:  "Images/woman.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+				
+
+
+<SecondWindow>:
+
+	name: "second"
+	vozrast: vozrast
+
+
+
+    FloatLayout:
+		size: root.width, root.height
+
+
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_2.png"
+
+		Label:
+			text: "Enter your age"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 50
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+
+		TextInput:
+			id: vozrast
+			text: "0"
+			size_hint: 0.4, 0.4
+			pos_hint: {"x":0.3, "y":0.3}
+			halign: 'center'
+            valign: 'middle'
+			id: vozrast
+			font_size: 190
+			background_color: (0, 0.30, 0.59, 0)
+
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.83, "y":0.1}
+			
+			on_release: 
+				app.root.current = "third"
+				root.manager.transition.direction = "left"
+				app.vozrast = root.vozrast_read()
+			Image:
+				source:  "Images/right.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.07, "y":0.1}
+			on_release: 
+				app.root.current = "first"
+				root.manager.transition.direction = "right"
+				
+			Image:
+				source:  "Images/left.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+<ThirdWindow>:
+	name: "third"
+
+
+
+    FloatLayout:
+		size: root.width, root.height
+
+
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_1.png"
+		
+		Label:
+			text: "Enter your driving experience(ages)"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 40
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+		
+		TextInput:
+			id: stazh
+			text: "0"
+			size_hint: 0.4, 0.4
+			pos_hint: {"x":0.3, "y":0.3}
+			halign: 'center'
+            valign: 'middle'
+			id: vozrast
+			font_size: 190
+			background_color: (0, 0.30, 0.59, 0)
+
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.83, "y":0.1}
+			
+			on_release: 
+				app.root.current = "fourth"
+				root.manager.transition.direction = "left"
+
+				
+
+			Image:
+				source:  "Images/right.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.07, "y":0.1}
+			on_release: 
+				app.root.current = "second"
+				root.manager.transition.direction = "right"
+			Image:
+				source:  "Images/left.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+
+<FourthWindow>:
+	name: "fourth"
+
+
+    FloatLayout:
+
+		size: root.width, root.height
+
+
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_2.png"
+		
+
+
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.65}
+			text: "KIA Sportage"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.67}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "KIA Sportage")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.6}
+			text: "Mazda CX-5"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.62}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Mazda CX-5")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.55}
+			text: "Nissan X-Trail"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.57}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Nissan X-Trail")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.5}
+			text: "Skoda Octavia A7"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.52}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Skoda Octavia A7")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.45}
+			text: "Toyota Camry"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.47}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Toyota Camry")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.4}
+			text: "Toyota RAV 4"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.42}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Toyota RAV 4")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.13, "y":0.35}
+			text: "VW Tiguan"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.11, "y":0.37}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "VW Tiguan")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+
+
+
+
+
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.65}
+			text: "Hyundai Creta"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.67}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Hyundai Creta")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.6}
+			text: "Hyundai Solaris"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.62}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Hyundai Solaris")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.55}
+			text: "KIA Rio"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.57}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "KIA Rio")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.5}
+			text: "Nissan Qashqai"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.52}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Nissan Qashqai")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.45}
+			text: "Renault Duster"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.47}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Renault Duster")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.4}
+			text: "Renault Kaptur"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.42}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Renault Kaptur")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.35}
+			text: "Skoda Rapid"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.37}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Skoda Rapid")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.43, "y":0.3}
+			text: "VW Polo"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.41, "y":0.32}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "VW Polo")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+
+
+
+
+
+
+
+
+
+
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.65}
+			text: "Chevrolet NIVA"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.67}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Chevrolet NIVA")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.6}
+			text: "Datsun on-DO"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.62}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Datsun on-DO")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.55}
+			text: "Lada 4x4"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.57}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Lada 4x4")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.5}
+			text: "Lada Granta"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.52}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Lada Granta")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.45}
+			text: "Lada Kalina"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.47}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Lada Kalina")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.4}
+			text: "Lada Largus"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.42}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Lada Largus")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.35}
+			text: "Lada Vesta"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.37}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Lada Vesta")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.3}
+			text: "Lada X-Ray"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.32}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Lada X-Ray")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.25}
+			text: "Renault Logan"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.27}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Renault Logan")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+		Label:
+			size_hint: 0.2, 0.07
+			pos_hint: {"x":0.73, "y":0.2}
+			text: "Renault Sandero"
+			font_size: 18
+			color: 0, 0, 0, 1
+		CheckBox:
+			size_hint: 0.02, 0.03
+			color: 0.5, 0.35, 0.2, 1
+			pos_hint: {"x":0.71, "y":0.22}
+			group: "cars"
+			on_active: 
+				root.checkbox_click(self, self.active, "Renault Sandero")
+				app.root.current = "fifth"
+				root.manager.transition.direction = "left"
+
+
+
+
+			
+		Label:
+			text: "Choose your vehicle name"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 50
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+
+
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.07, "y":0.1}
+			on_release: 
+				app.root.current = "third"
+				root.manager.transition.direction = "right"
+			Image:
+				source:  "Images/left.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+<FifthWindow>:
+	name: "fifth"
+
+
+    FloatLayout:
+
+		size: root.width, root.height
+
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_1.png"
+		
+		
+		Label:
+			text: "Have you ever been in a car accident"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 40
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+
+		Button:
+			font_size: 32
+			
+			size_hint: 0.22, 0.27
+			pos_hint: {"x":0.62, "y":0.36}
+			background_color: 0, 0.30, 0.59, 0
+			on_release: 
+				app.avarii = root.set_no()
+				app.root.current = "sixth"
+				root.manager.transition.direction = "left"
+			Image:
+				source:  "Images/cross.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+		Button:
+			font_size: 32
+			size_hint: 0.22, 0.27
+			pos_hint: {"x":0.18, "y":0.36}
+			background_color: 0, 0.30, 0.59, 0
+			on_release: 
+				app.avarii = root.set_yes()
+				app.root.current = "sixth"
+				root.manager.transition.direction = "left"
+			Image:
+				source:  "Images/tick.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.07, "y":0.1}
+			on_release: 
+				app.root.current = "fourth"
+				root.manager.transition.direction = "right"
+			Image:
+				source:  "Images/left.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+<SixthWindow>:
+	name: "sixth"
+
+
+    FloatLayout:
+		size: root.width, root.height
+		
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_2.png"
+
+
+		Label:
+			id: type
+			text: "Choose type of an insurance"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 50
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+
+		Label:
+			id: type
+			text: "Full"
+
+			halign: 'center'
+            valign: 'middle'
+			font_size: 35
+			pos_hint:{"x":-0.21,"y":-0.19}
+			color: 0, 0, 0, 1
+
+		Label:
+			id: type
+			text: "Partial"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 35
+			pos_hint:{"x":0.23, "y":-0.19}
+			color: 0, 0, 0, 1
+
+		Button:
+			font_size: 32
+			size_hint: 0.22, 0.27
+			pos_hint: {"x":0.18, "y":0.36}
+			background_color: 0, 0.30, 0.59, 0
+			on_release: 
+				app.tip_strahovaniya = root.set_full()
+				app.root.current = "seventh"
+				root.manager.transition.direction = "left"
+				pol = app.pol
+				vozrast = app.vozrast
+				stazh = 2
+				avto = app.avto
+				avarii = app.avarii
+				tip_strahovaniya = app.tip_strahovaniya
+
+				app.raschet_tarifa = root.raschet_tarifa(avto, pol, vozrast, stazh, avarii, tip_strahovaniya)
+
+				root.set_text_final()
+			Image:
+				source:  "Images/full.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+		Button:
+			font_size: 32
+			size_hint: 0.22, 0.27
+			pos_hint: {"x":0.62, "y":0.36}
+			background_color: 0, 0.32, 0.62, 0
+			on_release: 
+				app.tip_strahovaniya = root.set_partial()
+				app.root.current = "seventh"
+				root.manager.transition.direction = "left"
+				pol = app.pol
+				vozrast = app.vozrast
+				stazh = 2
+				avto = app.avto
+				avarii = app.avarii
+				tip_strahovaniya = app.tip_strahovaniya
+
+				app.raschet_tarifa = root.raschet_tarifa(avto, pol, vozrast, stazh, avarii, tip_strahovaniya)
+
+				root.set_text_final()
+
+			Image:
+				source:  "Images/partial.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.07, "y":0.1}
+			on_release: 
+				app.root.current = "fifth"
+				root.manager.transition.direction = "right"
+				
+			Image:
+				source:  "Images/left.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
+
+
+<SeventhWindow>:
+	name: "seventh"
+
+    FloatLayout:
+
+		size: root.width, root.height
+
+
+		canvas.before:
+			Rectangle:
+				pos: self.pos
+				size: self.size
+				source:  "back/background_2.png"
+		
+		Label:
+			text: "Your final insurance price"
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 50
+			pos_hint:{"y":0.33}
+			color: 0, 0, 0, 1
+
+		
+		Label:
+			id: final
+			text: root.labelText
+			size: self.texture_size
+			halign: 'center'
+            valign: 'middle'
+			font_size: 130
+			color: 0, 0, 0, 1
+
+
+		Button:
+			font_size: 32
+			size_hint: 0.1, 0.15
+			background_color: 0, 0.30, 0.59, 0
+			pos_hint: {"x":0.07, "y":0.1}
+			on_release: 
+				app.root.current = "sixth"
+				root.manager.transition.direction = "right"
+			Image:
+				source:  "Images/left.png"
+				size: self.parent.size
+				center_x: self.parent.center_x
+				center_y: self.parent.center_y
